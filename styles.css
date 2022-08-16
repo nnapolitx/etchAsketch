@@ -3,12 +3,23 @@ body {
     flex-direction: column;
     background-color: coral;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .head {
     font-size: 3rem;
     align-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.inst {
+    font-size: 1.25rem;
+}
+
+button {
+    margin: .5rem;
+    font-size: 1.5rem;
+    padding: .5rem;
 }
 
 .container {
@@ -16,11 +27,12 @@ body {
     flex-wrap: wrap;
     background-color: whitesmoke;
     border: 2px solid black;
-    height: 80vh;
+    height: 75vh;
     width: 60%;
 }
 
 .end {
     font-size: 2rem;
     align-content: flex-end;
+    margin-top: 2rem;
 }
