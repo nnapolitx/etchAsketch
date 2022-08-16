@@ -1,22 +1,19 @@
 const container = document.querySelector('.container');
-const grid16 = document.querySelector('.b16');
 const newBtn = document.querySelector('.newBtn');
 
-grid16.addEventListener('click', grid16x16);
+//grid16.addEventListener('click', grid16x16);
 
-function grid16x16() {
-  
+window.addEventListener('load', () => {
   for (let i=1; i<= 256; i++) {
     const blocks = document.createElement('div');
     blocks.classList.add('.blocks');
     container.appendChild(blocks);
-    blocks.textContent = '.'
     blocks.style.width = '6.25%';
     blocks.addEventListener("mouseover", () => {
       blocks.style.backgroundColor = 'black';
     });
   }
-}
+});
 
 newBtn.addEventListener('click', () => {
 
@@ -24,9 +21,8 @@ newBtn.addEventListener('click', () => {
 
   if (numOfBlocks > 0 && numOfBlocks < 101) {
     let getWidth = 100/numOfBlocks; //sets width percentage
-    console.log(getWidth);
-    let blockGrid = numOfBlocks*numOfBlocks;
-    console.log(blockGrid);
+    let blockGrid = numOfBlocks*numOfBlocks; //sets grid
+
     //creates grid
     for (let i=1; i<= blockGrid; i++) {
       const blocks = document.createElement('div');
@@ -38,7 +34,9 @@ newBtn.addEventListener('click', () => {
       });
     }//for loop
   }//if statment
+
   else {
     alert('You need to enter a number greater than 0 and less than or equal to 100.')
   }
+
 });
