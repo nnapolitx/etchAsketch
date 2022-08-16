@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     background-color: coral;
     align-items: center;
+    padding: 2rem;
 }
 
 .head {
@@ -11,7 +12,12 @@ body {
 }
 
 .container {
-    
+    display: flex;
+    flex-wrap: wrap;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    height: 80vh;
+    width: 60%;
 }
 
 .end {
