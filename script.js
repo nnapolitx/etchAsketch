@@ -1,7 +1,6 @@
 const container = document.querySelector('.container');
 const newBtn = document.querySelector('.newBtn');
 
-//grid16.addEventListener('click', grid16x16);
 
 window.addEventListener('load', () => {
   for (let i=1; i<= 256; i++) {
@@ -15,7 +14,20 @@ window.addEventListener('load', () => {
   }
 });
 
+function resetCanvas () {
+  const reset = container.querySelectorAll('div');
+  console.log(reset.length);
+  let i = reset.length;
+
+  while (i>0){
+    container.removeChild(container.lastChild);
+    i--
+  }
+}
+
 newBtn.addEventListener('click', () => {
+
+  resetCanvas();
 
   let numOfBlocks = prompt('Type in the number of pixles you want to appear on the grid. The grid accepts up to 100 pixles. Example: "16"; the gird will be 16x16 pixles');
 
