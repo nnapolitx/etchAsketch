@@ -1,12 +1,12 @@
-const container = document.querySelector('.container');
-const newBtn = document.querySelector('.newBtn');
+const canvas = document.querySelector('.container');
+const setCanvas = document.querySelector('.set-canvas');
 
-
+//Loads a default grid of 16x16 divs
 window.addEventListener('load', () => {
   for (let i=1; i<= 256; i++) {
     const blocks = document.createElement('div');
     blocks.classList.add('.blocks');
-    container.appendChild(blocks);
+    canvas.appendChild(blocks);
     blocks.style.width = '6.25%';
     blocks.addEventListener("mouseover", () => {
       blocks.style.backgroundColor = 'black';
@@ -14,41 +14,44 @@ window.addEventListener('load', () => {
   }
 });
 
+setCanvas.addEventListener('click', createNewGrid);
+
+//erases the canvas so that user can input new grid
 function resetCanvas () {
-  const reset = container.querySelectorAll('div');
-  console.log(reset.length);
+  const reset = canvas.querySelectorAll('div');
   let i = reset.length;
 
   while (i>0){
-    container.removeChild(container.lastChild);
+    canvas.removeChild(canvas.lastChild);
     i--
   }
 }
 
-newBtn.addEventListener('click', () => {
-
+//Creates a new grid based on user input
+function createNewGrid() {
+  
   resetCanvas();
 
-  let numOfBlocks = prompt('Type in the number of pixles you want to appear on the grid. The grid accepts up to 100 pixles. Example: "16"; the gird will be 16x16 pixles');
+  const numOfBlocks = prompt('Type in the number of pixles you want to appear on the grid. The grid accepts up to 100 pixels. For example, if you enter "16", the grid will be 16x16 pixels');
 
   if (numOfBlocks > 0 && numOfBlocks < 101) {
-    let getWidth = 100/numOfBlocks; //sets width percentage
-    let blockGrid = numOfBlocks*numOfBlocks; //sets grid
+    const getWidth = 100/numOfBlocks; //sets width percentage so that divs will wrap at the appropriate amount on the x-axis.
+    const blockGrid = numOfBlocks*numOfBlocks; //sets the y-axis but also gives the correct number of blocks for the area of the grid.
 
-    //creates grid
+    //creates grid based on user input
     for (let i=1; i<= blockGrid; i++) {
       const blocks = document.createElement('div');
       blocks.classList.add('.blocks');
-      container.appendChild(blocks);
+      canvas.appendChild(blocks);
       blocks.style.width = `${getWidth}%`;
       blocks.addEventListener("mouseover", () => {
         blocks.style.backgroundColor = 'black';
       });
-    }//for loop
-  }//if statment
+    }
+  }
 
   else {
     alert('You need to enter a number greater than 0 and less than or equal to 100.')
   }
 
-});
+}
