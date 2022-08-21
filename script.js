@@ -23,7 +23,7 @@ function resetCanvas () {
 
   while (i>0){
     canvas.removeChild(canvas.lastChild);
-    i--
+    i--;
   }
 }
 
@@ -53,5 +53,7 @@ function createNewGrid() {
   else {
     alert('You need to enter a number greater than 0 and less than or equal to 100.')
   }
+
+
 
 }
