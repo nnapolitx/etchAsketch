@@ -1,5 +1,7 @@
 const canvas = document.querySelector('.container');
 const setCanvas = document.querySelector('.set-canvas');
+const eraserBtn = document.querySelector('.eraser');
+const multiColorBtn = document.querySelector('.multicolor');
 
 //Loads a default grid of 16x16 divs
 window.addEventListener('load', () => {
@@ -53,7 +55,30 @@ function createNewGrid() {
   else {
     alert('You need to enter a number greater than 0 and less than or equal to 100.')
   }
-
-
-
 }
+
+
+//eraser function =>
+eraserBtn.addEventListener('click', function() {
+  const numBlocks = canvas.querySelectorAll('div');
+  let num = numBlocks.length;
+  
+  for (i=0; i<=num; i++) {
+    numBlocks[i].addEventListener("mouseover", (e) => {
+      e.target.style.backgroundColor = 'whitesmoke';
+    });
+  }
+
+});
+
+
+//const colorOfBlocks = () => {
+//  const blocks = canvas.querySelectorAll('divs');
+//  window.addEventListener('load', blocks.style.backgroundColor = 'black');
+//  eraserBtn.addEventListener('click', blocks.style.backgroundColor = 'white');
+//  multiColorBtn.addEventListener('click', blocks.style.backgroundColor = 'red');
+//  console.log(blocks);
+//  return blocks;
+//
+//  //blocks.style.backgroundColor = 'white';
+//};
